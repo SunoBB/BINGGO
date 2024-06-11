@@ -15,13 +15,16 @@ def creatBroad():
     return card
 
 def broad(card):
-    print(" B   I   N   G   O")
+    # print(" B   I   N   G   O")
+    print(f"{'B':>4} {'I':>4} {'N':>4} {'G':>4} {'O':>4}")
     for i in range(5):
         for key in card:
             if card[key][i] == 0:
-                print(" 0 ", end="  ")
+                # print(" 0 ", end="  ")
+                print(f"{'0':>3}", end="  ")
             else:
-                print(f"{card[key][i]:2d}", end="  ")
+                # print(f"{card[key][i]:2d}", end="  ")
+                print(f"{card[key][i]:>3}", end="  ")
         print()
 
 # Bước 2: Kiểm tra thẻ thắng
@@ -41,7 +44,7 @@ def check_winning_card(card):
                 #    4 // B, 3 // I, 2 // N, 1 // G, 0 // O 
     if all(card[key][i] == 0 for i, key in enumerate(card)) or \
         all(card[key][4-i] == 0 for i, key in enumerate(card)):
-        print('chéo thắng')
+        print('Chéo thắng')
         return True
     return False
 
@@ -73,5 +76,5 @@ if __name__ == '__main__':
     bingo_card = creatBroad()    
     # Danh sách các số đã gọi
     called_numbers = random.sample(range(1, 76), 75)
-    print(called_numbers)
+
     main()
